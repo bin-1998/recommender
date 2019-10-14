@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 水平表单</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style=" background: url(http://global.bing.com/az/hprichbg/rb/RavenWolf_EN-US4433795745_1920x1080.jpg) no-repeat center center fixed; background-size: 100%;">
+
+
+<div class="modal-dialog"  style="margin-top: 10%;width: 20%" >
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h4 class="modal-title text-center" id="myModalLabel">登录</h4>
+        </div>
+        <div class="modal-body" id = "model-body">
+            <div class="form-group">
+
+                <input id="name" type="text" class="form-control"placeholder="用户名" autocomplete="off">
+            </div>
+            <div class="form-group">
+
+                <input id="password" type="password" class="form-control" placeholder="密码" autocomplete="off">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-group">
+                <button id="login" type="button" class="btn btn-primary form-control" >登录</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default form-control">注册</button>
+            </div>
+
+        </div>
+
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+<script>
+    $(function() {
+        $("#login").click(function(){
+            //$(this).button('loading').delay(1000).queue(function() {
+                // $(this).button('reset');
+                // $(this).dequeue();
+
+            //});
+           var name= $("#name").val();
+           var password=$("#password").val();
+            var d = {};
+            d.userId = 30;
+            d.username = "Sunpeng.Guo";
+            $.ajax({
+                url: "update",
+                data: JSON.stringify(d),
+                //type、contentType必填,指明传参方式
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                success: function(response){
+                    //前端调用成功后，可以处理后端传回的json格式数据。
+                    if(response.success){
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

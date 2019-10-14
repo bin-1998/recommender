@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bin.app.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.bin.app.entity.User">
+        <result column="id" jdbcType="int" property="id" />
+        <result column="name" jdbcType="char" property="name" />
+        <result column="passWord" jdbcType="int" property="passWord" />
+    </resultMap>
+
+    <select id="Sel" resultType="com.bin.app.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+</mapper>

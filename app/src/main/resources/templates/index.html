@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Signin Template for Bootstrap</title>
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+	</head>
+
+	<body class="text-center">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Link</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<form class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+
+
+		<form class="form-signin" method="post" action="dashboard.html" th:action="@{/user/login}">
+			<img class="mb-4" th:src="@{/asserts/img/bootstrap-solid.svg}" src="asserts/img/bootstrap-solid.svg" alt="" width="72" height="72">
+			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+            <!--判断-->
+            <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+			<label class="sr-only" th:text="#{login.username}">Username</label>
+			<input type="text" name="username" class="form-control" placeholder="Username" th:placeholder="#{login.username}" required="" autofocus="">
+			<label class="sr-only" th:text="#{login.password}">Password</label>
+			<input type="password" name="password" class="form-control" placeholder="Password" th:placeholder="#{login.password}" required="">
+			<div class="checkbox mb-3">
+				<label>
+          <input type="checkbox" value="remember-me" > [[#{login.remember}]]
+        </label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}">Sign in</button>
+			<p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+			<a class="btn btn-sm" th:href="@{/index.html(l='zh_CN')}">中文</a>
+			<a class="btn btn-sm" th:href="@{/index.html(l='en_US')}">English</a>
+		</form>
+
+	</body>
+
+</html>
